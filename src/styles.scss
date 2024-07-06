@@ -1,18 +1,33 @@
+* {
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
   padding: 0;
   height: 100vh;
-  font-family: Arial, sans-serif;
+  font-family: "Inter", sans-serif;
   background-color: #673070;
   box-sizing: border-box;
   position: relative;
+}
+
+h1, h2, h3, p {
+  margin: 0;
+}
+
+h1, h2 {
+  font-weight: 700px;
+}
+
+p {
+  font-weight: 400px;
 }
 
 button {
   all: unset;
   cursor: pointer;
   display: flex;
-  // flex-direction: row;
 }
 
 #app {
@@ -25,6 +40,7 @@ button {
   color: #000000;
 }
 
+// Боковое меню
 .sidebar {
   min-width: 262px;
   background-color: #d6c4da;
@@ -32,12 +48,11 @@ button {
   flex-direction: column;
   border-top-left-radius: 10px;
   border-bottom-left-radius: 10px;
-  // padding: 16px 12px 33px;
 }
 
+// Шапка бокового меню
 .sidebar-header {
   border-bottom: 1px solid #bcaec1;
-  // height: 63px;
   padding: 16px 12px 18px;
   display: flex;
   justify-content: space-between;
@@ -46,17 +61,16 @@ button {
     display: flex;
     gap: 8px;
 
+    h1 {
+      font-size: 24px;
+      font-weight: 700;
+      line-height: 29.05px;
+      letter-spacing: -0.01em;
+    }
+
     img {
       width: 12px;
     }
-  }
-
-  h1 {
-    margin: 0;
-    font-size: 24px;
-    font-weight: 700;
-    line-height: 29.05px;
-    letter-spacing: -0.01em;
   }
 
   img {
@@ -64,56 +78,124 @@ button {
   }
 }
 
+// Основная часть бокового меню
+
 .sidebar-main {
   padding: 18px 12px 33px;
-}
 
-.sidebar-menu {
-  display: flex;
-  flex-direction: column;
-}
+  .sidebar-menu {
+    display: flex;
+    flex-direction: column;
 
-.sidebar-menu-btn {
-  // display: flex;
-  gap: 12px;
-  padding: 7px 0 0 19px;
-
-  img {
-    width: 20px;
-  }
-
-  h3 {
-    margin: 0;
-    font-size: 20px;
-    font-weight: 400;
-    line-height: 24.2px;
-    letter-spacing: -0.04em;
-    color: #464446;
+    .sidebar-menu-btn {
+      gap: 12px;
+      padding: 7px 0 0 19px;
+    
+      img {
+        width: 20px;
+      }
+    
+      p {
+        font-size: 20px;
+        line-height: 24.2px;
+        letter-spacing: -0.04em;
+        color: #464446;
+      }
+    }
   }
 }
+
+// Список каналов
 
 .channels {
-  flex: 1;
-  overflow-y: auto;
+
+  .channels-header {
+    gap: 17px;
+    margin: 18px 0 12px;
+  
+    p {
+      font-size: 20px;
+      line-height: 24.2px;
+      letter-spacing: -0.04em;
+      color: #464446;
+    }
+  }
+
+  .channels-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    height: 65%;
+    max-height: 532px;
+    overflow: auto;
+    scrollbar-width: none;
+    max-width: 238px;
+  
+    button {
+      gap: 16px;
+      padding: 8px 31px 8px 12px;
+      max-width: 238px;
+      max-height: 38px;
+
+      img {
+        width: 18px;
+        height: 18px;
+      }
+
+      p {
+        font-size: 18px;
+        line-height: 21.78px;
+        letter-spacing: 0.02em;
+        text-align: left;
+        color: #464446;
+        display: block;
+        max-width: 161px;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+      }
+    }
+
+    button:focus {
+      background-color: #350d36;
+      max-width: 238px;
+      border-radius: 8px;
+
+      p {
+        color: #FFFFFF;
+      }
+    }
+  }
+
+  .rollup-icon {
+    transition: transform 0.3s ease;
+  }
+  
+  .rollup-icon.rotated {
+    transform: rotate(-90deg);
+  }
+
+  .add-channel-btn {
+    gap: 16px;
+    padding: 8px 31px 8px 12px;
+
+    p {
+      font-size: 18px;
+      line-height: 21.78px;
+      letter-spacing: 0.02em;
+      color: #464446;
+    }
+  }
 }
 
-.channels-header {
-  gap: 17px;
-  font-size: 20px;
-  font-weight: 400;
-  line-height: 24.2px;
-  letter-spacing: -0.04em;
-  color: #464446;
+.hidden {
+  display: none;
 }
 
-.channels-list {
-  list-style-type: none;
-  padding: 0;
-  margin: 0;
-  overflow-y: auto;
-  background-color: white;
-  height: 65%;
-}
+
+
+
 
 // .channels-list li {
 //   padding: 10px 20px;
