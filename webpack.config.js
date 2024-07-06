@@ -7,13 +7,16 @@ module.exports = {
   output: {
     filename: 'bundle.js',
     path: path.resolve(__dirname, 'dist'),
+    publicPath: '/',
   },
   mode: 'development',
   devtool: 'inline-source-map',
   devServer: {
-    static: './dist',
+    static: {
+      directory: path.join(__dirname, 'dist'),
+    },
     hot: true,
-    watchFiles: ['src/**/*', 'index.html']
+    watchFiles: ['src/**/*', 'index.html'],
   },
   module: {
     rules: [
@@ -28,21 +31,26 @@ module.exports = {
       },
       {
         test: /\.svg$/,
-        use: 'file-loader',
+        type: 'asset/resource',
+        generator: {
+          filename: 'assets/icons/[name][ext]',
+        },
       },
       {
         test: /\.(png|jpg|gif)$/,
-        use: [
-          {
-            loader: 'file-loader',
-            options: {},
-          },
-        ],
+        type: 'asset/resource',
+        generator: {
+          filename: 'assets/images/[name][ext]',
+        },
+      },
+      {
+        test: /\.html$/,
+        use: 'html-loader',
       },
     ],
   },
   resolve: {
-    extensions: ['.tsx', '.ts', '.js'],
+    extensions: ['.tsx', '.ts', '.js', '.scss'],
   },
   plugins: [
     new HtmlWebpackPlugin({

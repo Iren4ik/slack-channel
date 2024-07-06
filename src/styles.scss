@@ -1,3 +1,160 @@
 body {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
   font-family: Arial, sans-serif;
+  background-color: #673070;
+  box-sizing: border-box;
+  position: relative;
 }
+
+button {
+  all: unset;
+  cursor: pointer;
+  display: flex;
+  // flex-direction: row;
+}
+
+#app {
+  display: flex;
+  position: absolute;
+  top: 50px;
+  right: 6px;
+  bottom: 6px;
+  left: 103px;
+  color: #000000;
+}
+
+.sidebar {
+  min-width: 262px;
+  background-color: #d6c4da;
+  display: flex;
+  flex-direction: column;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+  // padding: 16px 12px 33px;
+}
+
+.sidebar-header {
+  border-bottom: 1px solid #bcaec1;
+  // height: 63px;
+  padding: 16px 12px 18px;
+  display: flex;
+  justify-content: space-between;
+
+  .sidebar-title {
+    display: flex;
+    gap: 8px;
+
+    img {
+      width: 12px;
+    }
+  }
+
+  h1 {
+    margin: 0;
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 29.05px;
+    letter-spacing: -0.01em;
+  }
+
+  img {
+    width: 17px;
+  }
+}
+
+.sidebar-main {
+  padding: 18px 12px 33px;
+}
+
+.sidebar-menu {
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar-menu-btn {
+  // display: flex;
+  gap: 12px;
+  padding: 7px 0 0 19px;
+
+  img {
+    width: 20px;
+  }
+
+  h3 {
+    margin: 0;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 24.2px;
+    letter-spacing: -0.04em;
+    color: #464446;
+  }
+}
+
+.channels {
+  flex: 1;
+  overflow-y: auto;
+}
+
+.channels-header {
+  gap: 17px;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 24.2px;
+  letter-spacing: -0.04em;
+  color: #464446;
+}
+
+.channels-list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  overflow-y: auto;
+  background-color: white;
+  height: 65%;
+}
+
+// .channels-list li {
+//   padding: 10px 20px;
+//   cursor: pointer;
+// }
+
+// .channels-list li:hover {
+//   background-color: #350d36;
+// }
+
+// .main {
+//   flex: 1;
+//   display: flex;
+//   flex-direction: column;
+// }
+
+// .chat-header {
+//   padding: 20px;
+//   background-color: #eee;
+// }
+
+// .chat-content {
+//   flex: 1;
+//   padding: 20px;
+//   overflow-y: auto;
+//   background-color: #f9f9f9;
+// }
+
+// .message {
+//   margin-bottom: 20px;
+// }
+
+// .chat-input {
+//   padding: 10px;
+//   border-top: 1px solid #ddd;
+//   background-color: #fff;
+// }
+
+// .chat-input input {
+//   width: 100%;
+//   padding: 10px;
+//   border: 1px solid #ddd;
+//   border-radius: 4px;
+// }
