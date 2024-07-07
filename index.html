@@ -17,22 +17,23 @@
         <div class="sidebar-title">
           <h1>Slack</h1>
           <button class="sidebar-arrow-btn">
-            <img src="src/assets/icons/arrow.svg" />
+            <img src="src/assets/icons/arrow.svg" alt="Иконка стрелки"/>
           </button>
         </div>
         <button class="sidebar-burger-btn">
-          <img src="src/assets/icons/burger.svg" />
+          <img src="src/assets/icons/burger.svg" alt="Иконка бургерного меню"/>
         </button>
       </div>
+
       <!-- Меню -->
       <div class="sidebar-main">
         <div class="sidebar-menu">
           <button class="sidebar-menu-btn">
-            <img src="src/assets/icons/message.svg" />
+            <img src="src/assets/icons/message.svg" alt="Иконка сообщения"/>
             <p>Threads</p>
           </button>
           <button class="sidebar-menu-btn">
-            <img src="src/assets/icons/plane.svg" />
+            <img src="src/assets/icons/plane.svg" alt="Иконка рассылки"/>
             <p>Drafts & sent</p>
           </button>
         </div>
@@ -40,12 +41,12 @@
         <!-- Каналы -->
         <div class="channels">
           <button class="channels-header" id="channels-header">
-            <img class="rollup-icon" src="src/assets/icons/rollup.svg" />
+            <img class="rollup-icon" src="src/assets/icons/rollup.svg" alt="Иконка сворачивающегося меню"/>
             <p>Channels</p>
           </button>
           <ul class="channels-list" id="channels-list"></ul>
           <button class="add-channel-btn">
-            <img src="src/assets/icons/plus.svg" alt="Icon for new channel"/>
+            <img src="src/assets/icons/plus.svg" alt="Иконка плюса"/>
             <p>Add channels</p>
           </button>
         </div>
@@ -53,10 +54,37 @@
     </div>
 
     <!-- Основная часть -->
-    <!-- <div class="main">
+    <div class="chat">
 
       <div class="chat-header">
-        <h2># product-team</h2>
+        <button class="chat-name">
+          <img class="chat-header-lock" src="src/assets/icons/black-lock.svg" alt="Иконка замка"/>
+          <h2>product-team</h2>
+          <img src="src/assets/icons/arrow.svg" alt="Иконка стрелки"/>
+        </button>
+        <div class="chat-settings">
+          <button class="chat-setting chat-participants">
+            <ul class="chat-participants-list">
+              <li>
+                <img class="header-avatar" src="src/assets/images/avatar1.png" alt="Аватарка"/>
+              </li>
+              <li>
+                <img class="header-avatar" src="src/assets/images/avatar2.png" alt="Аватарка"/>
+              </li>
+              <li>
+                <img class="header-avatar" src="src/assets/images/avatar3.png" alt="Аватарка"/>
+              </li>
+            </ul>
+            <span>4</span>
+          </button>
+          <button class="chat-setting chat-earflap">
+            <img class="icon-earflap" src="src/assets/icons/earflap.svg" alt="Иконка наушников"/>
+            <img class="icon-arrow" src="src/assets/icons/grey-arrow.svg" alt="Иконка стрелки"/>
+          </button>
+          <button class="chat-setting chat-document">
+            <img src="src/assets/icons/document.svg" alt="Иконка добавить документ"/>
+          </button>
+        </div>
       </div>
 
       <div class="chat-content">
@@ -70,13 +98,13 @@
             We need to think about how we can improve our current process...
           </p>
         </div>
-
+        <div class="chat-input">
+          <input type="text" placeholder="Message #product-team" />
+        </div>
       </div>
 
-      <div class="chat-input">
-        <input type="text" placeholder="Message #product-team" />
-      </div>
-    </div> -->
+
+    </div>
   </div>
   <script src="/src/index.ts"></script>
 </body>
