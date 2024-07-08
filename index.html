@@ -87,21 +87,209 @@
         </div>
       </div>
 
-      <div class="chat-content">
-        <div class="message">
-          <p><strong>Jordan</strong> 2:15 PM</p>
-          <p>We received a lot of UI feedback from the client again.</p>
+      <div class="chat-container">
+        <!-- Панель с закрепленными сообщениями -->
+        <div class="chat-pinned">
+          <button class="pinned-btn">
+            <img class="btn-icon-pin" src="src/assets/icons/pin.svg" alt="Иконка" />
+            <p class="pinned-btn-text"><span>2</span>&nbsp;Pinned</p>
+          </button>
+          <button class="pinned-btn">
+            <img class="btn-icon-plus" src="src/assets/icons/plus-grey.svg" alt="Иконка" />
+            <p class="pinned-btn-text">Add a bookmark</p>
+          </button>
         </div>
-        <div class="message">
-          <p><strong>Lara</strong> 2:30 PM</p>
-          <p>
-            We need to think about how we can improve our current process...
-          </p>
+
+        <!-- Сообщения -->
+        <div class="chat-content">
+          <div class="message">
+            <img alt="Аватар" />
+            <div class="message-container">
+              <div class="message-info">
+                <p class="message-author">Jordan</p>
+                <p class="message-time">2:15 PM</p>
+              </div>
+              <p>We received a lot of UI feedback from the client again.</p>
+            </div>
+          </div>
+          <div class="message">
+            <img alt="Аватар" />
+            <div class="message-container">
+              <div class="message-info">
+                <p class="message-author">Jordan</p>
+                <p class="message-time">2:15 PM</p>
+              </div>
+              <p>We received a lot of UI feedback from the client again.</p>
+            </div>
+          </div>
+          <div class="message">
+            <img alt="Аватар" />
+            <div class="message-container">
+              <div class="message-info">
+                <p class="message-author">Jordan</p>
+                <p class="message-time">2:15 PM</p>
+              </div>
+              <p>We received a lot of UI feedback from the client again.</p>
+            </div>
+          </div>
+          <div class="message">
+            <img alt="Аватар" />
+            <div class="message-container">
+              <div class="message-info">
+                <p class="message-author">Jordan</p>
+                <p class="message-time">2:15 PM</p>
+              </div>
+              <p>We received a lot of UI feedback from the client again.</p>
+            </div>
+          </div>
+          <!-- <div class="message">
+            <img alt="Аватар" />
+            <div class="message-container">
+              <div class="message-info">
+                <p class="message-author">Jordan</p>
+                <p class="message-time">2:15 PM</p>
+              </div>
+              <p>We received a lot of UI feedback from the client again.</p>
+            </div>
+          </div>
+          <div class="message">
+            <img alt="Аватар" />
+            <div class="message-container">
+              <div class="message-info">
+                <p class="message-author">Jordan</p>
+                <p class="message-time">2:15 PM</p>
+              </div>
+              <p>We received a lot of UI feedback from the client again.</p>
+            </div>
+          </div>
+          <div class="message">
+            <img alt="Аватар" />
+            <div class="message-container">
+              <div class="message-info">
+                <p class="message-author">Jordan</p>
+                <p class="message-time">2:15 PM</p>
+              </div>
+              <p>We received a lot of UI feedback from the client again.</p>
+            </div>
+          </div> -->
+
+          <div class="hr">
+            <div class="hr-line"></div>
+            <div class="hr-content">
+              <p>Today</p>
+              <img src="src/assets/icons/arrow.svg" alt="Иконка"/>
+            </div>
+            <div class="hr-line"></div>
+          </div>
+
+          <div class="message">
+            <img alt="Аватар" />
+            <div class="message-container">
+              <div class="message-info">
+                <p class="message-author">Jordan</p>
+                <p class="message-time">2:15 PM</p>
+              </div>
+              <p>We received a lot of UI feedback from the client again.</p>
+              <div class="message-emoji">
+              <button class="emoji-btn-count">
+                  <img src="src/assets/icons/emoji-finger.svg" alt="Иконка палец вверх"/>
+                  <span>0</span>
+              </button>
+              <button class="emoji-btn-add">
+                <img src="src/assets/icons/emoji.svg" alt="Иконка смайлика"/>                 
+              </button>
+            </div>
+            </div>
+          </div>
         </div>
-        <div class="chat-input">
-          <input type="text" placeholder="Message #product-team" />
+        <!-- Поле для ввода сообщения -->
+        <!-- <div class="sample-toolbar">
+          <span class="fa fa-bold fa-fw" aria-hidden="true" onclick="format('bold')"></span>
+          <span class="fa fa-italic fa-fw" aria-hidden="true" onclick="format('italic')"></span>
+          <span class="fa fa-list fa-fw" aria-hidden="true" onclick="format('insertunorderedlist')"></span>
+          <span class="fa fa-link fa-fw" aria-hidden="true" onclick='setUrl()'></span>
+        </div>
+        <div class="editor" contenteditable="true">  </div> -->
+        <div id="rich-text" class="rich-text">
+          <div class="toolbar">
+            <button class="btn" data-role="bold">
+              <img class='icon-bold' src="src/assets/icons/bold.svg" alt="Иконка жирного шрифта"/>
+            </button>
+            <button class="btn" data-role="italic">
+              <img class='icon-italic' src="src/assets/icons/italic.svg" alt="Иконка курсива"/>
+            </button>
+            <button class="btn" data-role="strikeThrough">
+              <img class='icon-strikethrough' src="src/assets/icons/strikethrough.svg" alt="Иконка перечеркивания текста"/>
+            </button>
+            <hr/>
+            <button id="link" class="btn">
+              <img class='icon-link' src="src/assets/icons/link.svg" alt="Иконка вставки ссылки"/>
+            </button>
+            <hr/>
+            <button class="btn" data-role="numbering">
+              <img class='icon-numeration' src="src/assets/icons/numeration-list.svg" alt="Иконка нумерованного списка"/>
+            </button>
+            <button class="btn" data-role="markers">
+              <img class='icon-markers' src="src/assets/icons/markers-list.svg" alt="Иконка маркированного списка"/>
+            </button>
+            <hr/>
+            <button class="btn" data-role="justify">
+              <img class='icon-justify' src="src/assets/icons/justify.svg" alt="Иконка выравнивания текста"/>
+            </button>
+            <hr/>
+            <button class="btn" data-role="justify">
+              <img class='icon-code' src="src/assets/icons/code.svg" alt="Иконка вставки кода"/>                                     
+            </button>
+            <button class="btn" data-role="justify">
+              <img class='icon-code-block' src="src/assets/icons/code-block.svg" alt="Иконка блока кода"/>                                     
+            </button>
+          </div>
+          
+          <div class="content" contenteditable>
+            <p>Message</p>
+              <img class='icon-lock' src="src/assets/icons/lock-grey.svg" alt="Иконка замка"/>
+            <p>product-team</p>
+          </div>
+
+          <div class="options-container">
+            <div class="options">
+              <button class="btn" data-role="">
+                <img class='icon-plus-circle' src="src/assets/icons/plus-circle.svg" alt="Иконка плюс"/>                           
+              </button>
+              <button class="btn" data-role="">
+                <img class='icon-underline' src="src/assets/icons/underline-text.svg" alt="Иконка подчеркивания"/>                                                    
+              </button>
+              <button class="btn" data-role="">
+                <img class='icon-emoji' src="src/assets/icons/emoji-main.svg" alt="Иконка смайлика"/>                                                 
+              </button>
+              <button class="btn" data-role="">
+                <img class='icon-dog' src="src/assets/icons/dog.svg" alt="Иконка @"/>                                                   
+              </button>
+              <hr/>
+              <button class="btn" data-role="">
+                <img class='icon-video' src="src/assets/icons/video.svg" alt="Иконка камеры"/>                                                   
+              </button>             
+              <button class="btn" data-role="">
+                <img class='icon-audio' src="src/assets/icons/audio.svg" alt="Иконка микрофона"/>                                                     
+              </button>
+              <hr/>
+              <button class="btn" data-role="">
+                <img class='icon-slash' src="src/assets/icons/slash.svg" alt="Иконка слэша"/>                                                       
+              </button>
+            </div>
+            <div class="send">
+              <button class="btn" data-role="">
+                <img class='icon-plane' src="src/assets/icons/send.svg" alt="Иконка самолетика"/>                                                                       
+              </button>
+              <hr/>
+              <button class="btn" data-role="">
+                <img class='icon-arrow' src="src/assets/icons/arrow-light-grey.svg" alt="Иконка стрелки"/>                                                                     
+              </button>
+            </div>
+          </div>
         </div>
       </div>
+    </div>
 
 
     </div>
