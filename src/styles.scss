@@ -29,6 +29,7 @@ body {
   background-color: $bg-color-layout;
   box-sizing: border-box;
   position: relative;
+  display: flex;
 }
 
 h1, h2, h3, p {
@@ -51,9 +52,10 @@ button {
 
 #app {
   display: flex;
-  position: absolute;
-  right: 6px;
-  bottom: 6px;
+  margin: auto;
+  // position: absolute;
+  // right: 6px;
+  // bottom: 6px;
   color: $text-color-black;
   min-height: 814px;
 
@@ -548,8 +550,8 @@ button {
           color: #c8c9ca;
           margin: 0;
           transition: all ease 0.5s;
-          width: 18px;
-          height: 18px;
+          // width: 18px;
+          // height: 18px;
     
           // &:hover {
           //   border: 1px solid #C8C9CA;
