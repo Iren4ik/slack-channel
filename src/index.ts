@@ -1,20 +1,16 @@
 import "./styles.scss";
 import { Channel, channels } from "./utils/channels";
 import { Message, messages } from "./utils/messages";
-import hashIcon from "./assets/icons/hash.svg";
-import lockIcon from "./assets/icons/lock.svg";
 import arrowIcon from "./assets/icons/arrow.svg";
 import emojiFingerIcon from "./assets/icons/emoji-finger.svg";
 import emojiIcon from "./assets/icons/emoji.svg";
 
-const svg = ''
 
-// Получаем элементы DOM
 const channelsList = document.getElementById("channels-list");
 const channelsHeader = document.getElementById("channels-header");
 const rollupIcon = document.querySelector<HTMLImageElement>(".rollup-icon");
 
-// Функция для рендеринга списка каналов
+// Рендеринг списка каналов
 function renderChannelsList(): void {
   if (channelsList) {
     channelsList.innerHTML = channels
@@ -43,7 +39,7 @@ function renderChannelsList(): void {
   }
 }
 
-// Функциональность раскрывающегося списка
+// Функциональность раскрывающегося списка каналов
 function setupDropdownFunctionality(): void {
   if (channelsHeader && channelsList && rollupIcon) {
     channelsHeader.addEventListener("click", () => {
@@ -53,6 +49,7 @@ function setupDropdownFunctionality(): void {
   }
 }
 
+// Рендеринг списка сообщений
 function renderMessages(
   messages: Message[],
   elementId: string = "chat-list"
@@ -113,8 +110,15 @@ function renderMessages(
   const chatElement = document.getElementById(elementId);
   if (chatElement) {
     chatElement.innerHTML = messageList;
+    scrollToBottom(chatElement); // Прокрутить вниз после рендеринга сообщений
   }
 }
+
+// Установить изначальное положения скроллбара чата внизу
+function scrollToBottom(element: HTMLElement): void {
+  element.scrollTop = element.scrollHeight;
+}
+
 
 // Счетчик лайков
 function setupLikeButton(): void {
@@ -160,7 +164,39 @@ function setupLikeButton(): void {
   });
 }
 
+// Функция для настройки редактирования текста
+function setupTextEditing(): void {
+  const toolbarButtons = document.querySelectorAll('.toolbar .btn');
+  const content = document.querySelector('.content');
+
+  if (content) {
+    // Добавляем обработчики событий для кнопок на панели инструментов
+    toolbarButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        const role = button.getAttribute('data-role');
+        if (role) {
+          // Устаревшая команда execCommand
+          document.execCommand(role, false, undefined);
+        }
+      });
+    });
+
+    // Добавляем обработчик события для вставки ссылки
+    const linkButton = document.getElementById('link');
+    if (linkButton) {
+      linkButton.addEventListener('click', () => {
+        const url = prompt('Введите URL ссылки:');
+        if (url) {
+          // Устаревшая команда execCommand
+          document.execCommand('createLink', false, url);
+        }
+      });
+    }
+  }
+}
+
 renderChannelsList();
 setupDropdownFunctionality();
 renderMessages(messages);
 setupLikeButton();
+setupTextEditing();

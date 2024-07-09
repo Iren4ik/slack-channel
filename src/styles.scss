@@ -156,13 +156,13 @@ button {
         max-width: 238px;
       
         button {
-          position: relative; /* Добавьте это для позиционирования ::before */
+          position: relative;
           gap: 16px;
           padding: 8px 31px 8px 12px;
           max-width: 238px;
           max-height: 38px;
-          background: transparent; /* Убедитесь, что у кнопки нет собственного фона */
-          border: none; /* Убедитесь, что у кнопки нет границ */
+          background: transparent;
+          border: none; 
     
           svg {
             width: 18px;
@@ -184,27 +184,27 @@ button {
           }
 
           &::before {
-            content: ''; /* Псевдоэлемент для фона */
+            content: '';
             position: absolute;
             top: 0;
             left: 0;
             right: 0;
             bottom: 0;
-            background-color: transparent; /* Начальный цвет фона */
-            z-index: -1; /* Размещает фон позади текста и иконок */
-            border-radius: 8px; /* Скругленные углы фона */
-            transition: background-color 0.3s ease; /* Плавное изменение цвета фона */
+            background-color: transparent;
+            z-index: -1; 
+            border-radius: 8px;
+            transition: background-color 0.3s ease;
             width: 238px;
           }
 
           &:focus::before {
-            background-color: $bg-color-violet; /* Цвет фона при фокусе */
+            background-color: $bg-color-violet;
             border-radius: 8px;
             z-index: 0;
           }
     
           &:focus p {
-            color: $text-color-white; /* Цвет текста при фокусе */
+            color: $text-color-white;
             z-index: 1;
           }
 
@@ -212,16 +212,6 @@ button {
             stroke: white;
           }
         }
-    
-        // button:focus {
-        //   background-color: $bg-color-violet;
-        //   max-width: 238px;
-        //   border-radius: 8px;
-    
-        //   p {
-        //     color: $text-color-white;
-        //   }
-        // }
       }
     
       .rollup-icon {
