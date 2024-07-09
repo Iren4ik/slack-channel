@@ -6,14 +6,14 @@ module.exports = {
   entry: './src/index.ts',
   output: {
     filename: 'bundle.js',
-    path: path.resolve(__dirname, 'dist'),
-    publicPath: './',
+    path: path.resolve(__dirname, 'public'),
+    publicPath: '/',
   },
   mode: 'development',
   devtool: 'inline-source-map',
   devServer: {
     static: {
-      directory: path.join(__dirname, 'dist'),
+      directory: path.join(__dirname, 'public'),
     },
     hot: true,
     watchFiles: ['src/**/*', 'index.html'],
