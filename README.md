@@ -3,7 +3,7 @@
 
 Сверстан компонент с чатом одного из каналов Slack с использованием HTML, SCSS и TypeScript. Проект собран на Webpack.
 
-
+Ссылка: https://slack-channel-tiex.vercel.app/
 
 ## Функции
 
@@ -26,4 +26,4 @@
 
 ## Скриншоты
 
-![App Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
+![Скриншот приложения](https://github.com/Iren4ik/slack-channel/assets/124435764/5859c41f-1809-4e44-b7da-133bbb7fc6b9)
