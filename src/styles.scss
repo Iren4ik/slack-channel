@@ -130,7 +130,6 @@ button {
       }
     }
 
-  // Список каналов
     .channels {
 
       .channels-header {
@@ -157,14 +156,18 @@ button {
         max-width: 238px;
       
         button {
+          position: relative; /* Добавьте это для позиционирования ::before */
           gap: 16px;
           padding: 8px 31px 8px 12px;
           max-width: 238px;
           max-height: 38px;
+          background: transparent; /* Убедитесь, что у кнопки нет собственного фона */
+          border: none; /* Убедитесь, что у кнопки нет границ */
     
-          img {
+          svg {
             width: 18px;
             height: 18px;
+            z-index: 1;
           }
     
           p {
@@ -179,17 +182,46 @@ button {
             white-space: nowrap;
             overflow: hidden;
           }
-        }
+
+          &::before {
+            content: ''; /* Псевдоэлемент для фона */
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: transparent; /* Начальный цвет фона */
+            z-index: -1; /* Размещает фон позади текста и иконок */
+            border-radius: 8px; /* Скругленные углы фона */
+            transition: background-color 0.3s ease; /* Плавное изменение цвета фона */
+            width: 238px;
+          }
+
+          &:focus::before {
+            background-color: $bg-color-violet; /* Цвет фона при фокусе */
+            border-radius: 8px;
+            z-index: 0;
+          }
     
-        button:focus {
-          background-color: $bg-color-violet;
-          max-width: 238px;
-          border-radius: 8px;
-    
-          p {
-            color: $text-color-white;
+          &:focus p {
+            color: $text-color-white; /* Цвет текста при фокусе */
+            z-index: 1;
+          }
+
+          &:focus svg path {
+            stroke: white;
           }
         }
+    
+        // button:focus {
+        //   background-color: $bg-color-violet;
+        //   max-width: 238px;
+        //   border-radius: 8px;
+    
+        //   p {
+        //     color: $text-color-white;
+        //   }
+        // }
       }
     
       .rollup-icon {
@@ -376,21 +408,28 @@ button {
 
     // Контент чата
     .chat-content {
-      padding: 40px 24px 40px;
+      padding: 10px 24px 40px;
       overflow-y: auto;
       background-color: white;
       max-height: 510px;
       scrollbar-width: none;
-      display: flex;
+      // display: flex;
+      // flex-direction: column;
+      // gap: 18px;
+
+      ul {
+        padding: 0;
+        display: flex;
       flex-direction: column;
       gap: 18px;
+      }
     
       .message {
         display: flex;
         gap: 11px;
     
         img {
-          border: 1px solid black;
+          // border: 1px solid black;
           max-width: 48px;
           max-height: 48px;
           min-width: 48px;
@@ -437,10 +476,19 @@ button {
               align-items: center;
               max-height: 32px;
             }
+            
     
             .emoji-btn-count {
               padding: 0 8px;
               gap: 7px;
+
+              &.active {
+                background-color: #42aaff;
+                
+                span {
+                  color: white;
+                }
+              }
 
 
               img {

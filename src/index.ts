@@ -7,6 +7,8 @@ import arrowIcon from "./assets/icons/arrow.svg";
 import emojiFingerIcon from "./assets/icons/emoji-finger.svg";
 import emojiIcon from "./assets/icons/emoji.svg";
 
+const svg = ''
+
 // Получаем элементы DOM
 const channelsList = document.getElementById("channels-list");
 const channelsHeader = document.getElementById("channels-header");
@@ -17,10 +19,22 @@ function renderChannelsList(): void {
   if (channelsList) {
     channelsList.innerHTML = channels
       .map((channel: Channel) => {
-        const iconSrc = channel.type === "public" ? hashIcon : lockIcon;
+        const iconSVG = channel.type === "public" ? `
+          <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M7.5 2.25L4.5 15.75" stroke="#464446" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M13.5 2.25L10.5 15.75" stroke="#464446" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M3 6H15.75" stroke="#464446" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M2.25 12H15" stroke="#464446" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        ` : `
+          <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M14.25 7.5H3.75C2.92157 7.5 2.25 8.17157 2.25 9V15C2.25 15.8284 2.92157 16.5 3.75 16.5H14.25C15.0784 16.5 15.75 15.8284 15.75 15V9C15.75 8.17157 15.0784 7.5 14.25 7.5Z" stroke="#464446" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M4.5 4.5C4.5 3.90326 4.73705 3.33097 5.15901 2.90901C5.58097 2.48705 6.15326 2.25 6.75 2.25H11.25C11.8467 2.25 12.419 2.48705 12.841 2.90901C13.2629 3.33097 13.5 3.90326 13.5 4.5V7.5H4.5V4.5Z" stroke="#464446" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        `;
         return `
           <button>
-            <img src="${iconSrc}" alt="${channel.type} icon"/>
+            ${iconSVG}
             <p>${channel.name}</p>
           </button>
         `;
@@ -66,7 +80,7 @@ function renderMessages(
 
       html += `
       <li class="message">
-        <img src="${message.avatar}" alt="Аватар ${message.author}" />
+        <img src="${message.avatar}" alt="Аватар ${message.author}" width="48" height="auto"/>
         <div class="message-container">
           <div class="message-info">
             <p class="message-author">${message.author}</p>
@@ -80,7 +94,7 @@ function renderMessages(
                 <div class="message-emoji">
                   <button class="emoji-btn-count">
                     <img src="${emojiFingerIcon}" alt="Иконка палец вверх"/>
-                    <span>0</span>
+                    <span>1</span>
                   </button>
                   <button class="emoji-btn-add">
                     <img src="${emojiIcon}" alt="Иконка смайлика"/>                 
