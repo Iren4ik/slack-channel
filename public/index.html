@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+  <title>Slack</title>
+<script defer src="/bundle.js"></script></head>
+<body>
+  <div id="app">
+    <!-- Боковое меню -->
+    <div class="sidebar">
+      <!-- Шапка -->
+      <div class="sidebar-header">
+        <div class="sidebar-title">
+          <h1>Slack</h1>
+          <button class="sidebar-arrow-btn">
+            <img src="/assets/icons/arrow.svg" alt="Иконка стрелки"/>
+          </button>
+        </div>
+        <button class="sidebar-burger-btn">
+          <img src="/assets/icons/burger.svg" alt="Иконка бургерного меню"/>
+        </button>
+      </div>
+
+      <!-- Меню -->
+      <div class="sidebar-main">
+        <div class="sidebar-menu">
+          <button class="sidebar-menu-btn">
+            <img src="/assets/icons/message.svg" alt="Иконка сообщения"/>
+            <p>Threads</p>
+          </button>
+          <button class="sidebar-menu-btn">
+            <img src="/assets/icons/plane.svg" alt="Иконка рассылки"/>
+            <p>Drafts & sent</p>
+          </button>
+        </div>
+
+        <!-- Каналы -->
+        <div class="channels">
+          <button class="channels-header" id="channels-header">
+            <img class="rollup-icon" src="/assets/icons/rollup.svg" alt="Иконка сворачивающегося меню"/>
+            <p>Channels</p>
+          </button>
+          <ul class="channels-list" id="channels-list"></ul>
+          <button class="add-channel-btn">
+            <img src="/assets/icons/plus.svg" alt="Иконка плюса"/>
+            <p>Add channels</p>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Основная часть -->
+    <div class="chat">
+
+      <div class="chat-header">
+        <button class="chat-name">
+          <img class="chat-header-lock" src="/assets/icons/black-lock.svg" alt="Иконка замка"/>
+          <h2>product-team</h2>
+          <img src="/assets/icons/arrow.svg" alt="Иконка стрелки"/>
+        </button>
+        <div class="chat-settings">
+          <button class="chat-setting chat-participants">
+            <ul class="chat-participants-list">
+              <li>
+                <img class="header-avatar" src="/assets/images/avatar1.png" alt="Аватарка"/>
+              </li>
+              <li>
+                <img class="header-avatar" src="/assets/images/avatar2.png" alt="Аватарка"/>
+              </li>
+              <li>
+                <img class="header-avatar" src="/assets/images/avatar3.png" alt="Аватарка"/>
+              </li>
+            </ul>
+            <span>4</span>
+          </button>
+          <button class="chat-setting chat-earflap">
+            <img class="icon-earflap" src="/assets/icons/earflap.svg" alt="Иконка наушников"/>
+            <img class="icon-arrow" src="/assets/icons/grey-arrow.svg" alt="Иконка стрелки"/>
+          </button>
+          <button class="chat-setting chat-document">
+            <img src="/assets/icons/document.svg" alt="Иконка добавить документ"/>
+          </button>
+        </div>
+      </div>
+
+      <div class="chat-container">
+        <!-- Панель с закрепленными сообщениями -->
+        <div class="chat-pinned">
+          <button class="pinned-btn">
+            <img class="btn-icon-pin" src="/assets/icons/pin.svg" alt="Иконка" />
+            <p class="pinned-btn-text"><span>2</span>&nbsp;Pinned</p>
+          </button>
+          <button class="pinned-btn">
+            <img class="btn-icon-plus" src="/assets/icons/plus-grey.svg" alt="Иконка" />
+            <p class="pinned-btn-text">Add a bookmark</p>
+          </button>
+        </div>
+
+        <!-- Сообщения -->
+        <div class="chat-content">
+          <ul id="chat-list">
+          </ul>
+        </div>
+
+        <!-- Поле для ввода сообщения -->
+        <!-- <div class="sample-toolbar">
+          <span class="fa fa-bold fa-fw" aria-hidden="true" onclick="format('bold')"></span>
+          <span class="fa fa-italic fa-fw" aria-hidden="true" onclick="format('italic')"></span>
+          <span class="fa fa-list fa-fw" aria-hidden="true" onclick="format('insertunorderedlist')"></span>
+          <span class="fa fa-link fa-fw" aria-hidden="true" onclick='setUrl()'></span>
+        </div>
+        <div class="editor" contenteditable="true">  </div> -->
+
+        <div id="rich-text" class="rich-text">
+          <div class="toolbar">
+            <button class="btn" data-role="bold">
+              <img class='icon-bold' src="/assets/icons/bold.svg" alt="Иконка жирного шрифта"/>
+            </button>
+            <button class="btn" data-role="italic">
+              <img class='icon-italic' src="/assets/icons/italic.svg" alt="Иконка курсива"/>
+            </button>
+            <button class="btn" data-role="strikeThrough">
+              <img class='icon-strikethrough' src="/assets/icons/strikethrough.svg" alt="Иконка перечеркивания текста"/>
+            </button>
+            <hr/>
+            <button id="link" class="btn">
+              <img class='icon-link' src="/assets/icons/link.svg" alt="Иконка вставки ссылки"/>
+            </button>
+            <hr/>
+            <button class="btn" data-role="numbering">
+              <img class='icon-numeration' src="/assets/icons/numeration-list.svg" alt="Иконка нумерованного списка"/>
+            </button>
+            <button class="btn" data-role="markers">
+              <img class='icon-markers' src="/assets/icons/markers-list.svg" alt="Иконка маркированного списка"/>
+            </button>
+            <hr/>
+            <button class="btn" data-role="justify">
+              <img class='icon-justify' src="/assets/icons/justify.svg" alt="Иконка выравнивания текста"/>
+            </button>
+            <hr/>
+            <button class="btn" data-role="justify">
+              <img class='icon-code' src="/assets/icons/code.svg" alt="Иконка вставки кода"/>                                     
+            </button>
+            <button class="btn" data-role="justify">
+              <img class='icon-code-block' src="/assets/icons/code-block.svg" alt="Иконка блока кода"/>                                     
+            </button>
+          </div>
+          
+          <div class="content" contenteditable>
+            <p>Message</p>
+              <img class='icon-lock' src="/assets/icons/lock-grey.svg" alt="Иконка замка"/>
+            <p>product-team</p>
+          </div>
+
+          <div class="options-container">
+            <div class="options">
+              <button class="btn" data-role="">
+                <img class='icon-plus-circle' src="/assets/icons/plus-circle.svg" alt="Иконка плюс"/>                           
+              </button>
+              <button class="btn" data-role="">
+                <img class='icon-underline' src="/assets/icons/underline-text.svg" alt="Иконка подчеркивания"/>                                                    
+              </button>
+              <button class="btn" data-role="">
+                <img class='icon-emoji' src="/assets/icons/emoji-main.svg" alt="Иконка смайлика"/>                                                 
+              </button>
+              <button class="btn" data-role="">
+                <img class='icon-dog' src="/assets/icons/dog.svg" alt="Иконка @"/>                                                   
+              </button>
+              <hr/>
+              <button class="btn" data-role="">
+                <img class='icon-video' src="/assets/icons/video.svg" alt="Иконка камеры"/>                                                   
+              </button>             
+              <button class="btn" data-role="">
+                <img class='icon-audio' src="/assets/icons/audio.svg" alt="Иконка микрофона"/>                                                     
+              </button>
+              <hr/>
+              <button class="btn" data-role="">
+                <img class='icon-slash' src="/assets/icons/slash.svg" alt="Иконка слэша"/>                                                       
+              </button>
+            </div>
+            <div class="send">
+              <button class="btn" data-role="">
+                <img class='icon-plane' src="/assets/icons/send.svg" alt="Иконка самолетика"/>                                                                       
+              </button>
+              <hr/>
+              <button class="btn" data-role="">
+                <img class='icon-arrow' src="/assets/icons/arrow-light-grey.svg" alt="Иконка стрелки"/>                                                                     
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+    </div>
+
+
+    </div>
+  </div>
+  <script src="/9a2e9e764d61a746981d.ts"></script>
+</body>
+</html>
