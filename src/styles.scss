@@ -57,12 +57,8 @@ button:hover {
 #app {
   display: flex;
   margin: auto;
-  // position: absolute;
-  // right: 6px;
-  // bottom: 6px;
   color: $text-color-black;
   min-height: 814px;
-
   display: grid;
   grid-template-columns: 262px 829px;
   grid-template-rows: 63px 751px;
