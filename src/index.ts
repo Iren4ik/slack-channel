@@ -110,15 +110,8 @@ function renderMessages(
   const chatElement = document.getElementById(elementId);
   if (chatElement) {
     chatElement.innerHTML = messageList;
-    scrollToBottom(chatElement); // Прокрутить вниз после рендеринга сообщений
   }
 }
-
-// Установить изначальное положения скроллбара чата внизу
-function scrollToBottom(element: HTMLElement): void {
-  element.scrollTop = element.scrollHeight;
-}
-
 
 // Счетчик лайков
 function setupLikeButton(): void {
@@ -175,7 +168,6 @@ function setupTextEditing(): void {
       button.addEventListener('click', () => {
         const role = button.getAttribute('data-role');
         if (role) {
-          // Устаревшая команда execCommand
           document.execCommand(role, false, undefined);
         }
       });
@@ -187,7 +179,6 @@ function setupTextEditing(): void {
       linkButton.addEventListener('click', () => {
         const url = prompt('Введите URL ссылки:');
         if (url) {
-          // Устаревшая команда execCommand
           document.execCommand('createLink', false, url);
         }
       });
