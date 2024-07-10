@@ -57,13 +57,6 @@ export const messages: Message[] = [
     avatar: sarahAvatarSrc,
   },
   {
-    author: "Irene",
-    time: "12:45 PM",
-    date: "2024-07-08",
-    content: "Сейчас гляну, когда там у меня дедлайн... хах, вчера",
-    avatar: ireneAvatarSrc,
-  },
-  {
     author: "Jordan",
     time: "8:30 AM",
     date: "2024-07-09",
