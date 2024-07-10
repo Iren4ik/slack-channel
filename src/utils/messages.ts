@@ -15,7 +15,7 @@ export const messages: Message[] = [
     author: "Irene",
     time: "2:10 PM",
     date: "2024-07-08",
-    content: "Только для верстальщика фраза 'пошло-поехало' не означает ничего хорошего))))))",
+    content: "Catch the joke - only for a layout engineer, the phrase 'poshlo-poehalo' doesn't mean anything good))))))",
     avatar: ireneAvatarSrc,
   },
   {
@@ -38,7 +38,7 @@ export const messages: Message[] = [
     author: "Irene",
     time: "3:00 PM",
     date: "2024-07-08",
-    content: "Только предствьте, какими крутыми программистами вы бы стали, если бы прочитали все, что сохранили в закладках))))",
+    content: "Just imagine what cool programmers you'd become if you read everything you've saved in your bookmarks)))))",
     avatar: ireneAvatarSrc,
   },
   {
@@ -59,7 +59,7 @@ export const messages: Message[] = [
   {
     author: "Jordan",
     time: "8:30 AM",
-    date: "2024-07-10",
+    date: new Date().toISOString().split('T')[0],
     content: "Please send the project file when you get the chance. Thanks",
     avatar: jordanAvatarSrc,
   },
