@@ -59,7 +59,7 @@ export const messages: Message[] = [
   {
     author: "Jordan",
     time: "8:30 AM",
-    date: "2024-07-09",
+    date: "2024-07-10",
     content: "Please send the project file when you get the chance. Thanks",
     avatar: jordanAvatarSrc,
   },
